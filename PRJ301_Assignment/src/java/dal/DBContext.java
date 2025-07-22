@@ -15,11 +15,16 @@ import java.sql.DriverManager;
  *
  * @author p14s
  */
-public abstract class DBContext<T extends IModel> {
-    protected Connection connection;
-//    public class DBContext {
+
+
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DBContext {
     public Connection getConnection() throws Exception {
-            String url = "jdbc:sqlserver://localhost:1433;databaseName=PRJ301A42;encrypt=true;trustServerCertificate=true;";
+        String url = "jdbc:sqlserver://localhost:1433;databaseName=assmprj301_db;encrypt=true;trustServerCertificate=true;";
         String user = "ducnh";
         String password = "ducnhhe";
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");

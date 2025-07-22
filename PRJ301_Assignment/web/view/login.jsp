@@ -7,7 +7,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Đăng nhập</title>
+    <title>Login</title>
     <style>
         body { font-family: Arial; text-align: center; padding-top: 100px; }
         input { margin: 5px; }
@@ -16,7 +16,7 @@
 
 </head>
 <body>
-    <h2>Đăng nhập hệ thống</h2>
+    <h2>Login System</h2>
 
     <form action="${pageContext.request.contextPath}/login" method="post">
         <input type="text" name="username" placeholder="Tên đăng nhập" required><br>

@@ -4,7 +4,7 @@
     Author     : saiki
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ page import="model.User" %>
+<%@ page import="model.accesscontroll.User" %>
 
 <%
     User user = (User) session.getAttribute("user");
@@ -22,7 +22,7 @@
 <html>
 <head>
     
-    <title>Trang chủ</title>
+    <title>Home</title>
     <style>
         body {
             font-family: Arial;

@@ -14,9 +14,9 @@ import java.util.logging.Logger;
  *
  * @author p14s
  */
-public class DummyDBContext extends DBContext<Dummy> {
-    
-}
+//public class DummyDBContext extends DBContext<Dummy> {
+//    
+//}
 
 
 //    @Override

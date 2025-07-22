@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/web/view/rfl/list.jsp</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/controller/subordinate/ApproveRequestServlet.java</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/controller/rfl/ModifyRequestServlet.java</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/controller/authentication/BaseRBACController.java</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/model/accesscontrol/Role.java</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/controller/agenda/AgendaServlet.java</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/controller/subordinate/RejectRequestServlet.java</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/model/Employee.java</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/controller/rfl/RequestListServlet.java</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/model/accesscontrol/User.java</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/dal/DBContext.java</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/controller/authentication/LoginController.java</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/controller/authentication/BaseRequiredAuthenticationController.java</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/dal/AccountDBContext.java</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/controller/rfl/CreateRequestServlet.java</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/controller/dummy/UpdateController.java</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/controller/dummy/DetailController.java</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/dal/DummyDBContext.java</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/model/RequestForLeave.java</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/controller/authentication/LoginServlet.java</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/model/IModel.java</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/controller/authentication/LogoutServlet.java</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/controller/subordinate/SubordinateRequestServlet.java</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/dal/RoleDBContext.java</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/model/accesscontrol/LeaveRequest.java</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/dal/RequestForLeaveDBContext.java</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/controller/home/HomeServlet.java</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/web/view/authentication/login.jsp</file>
+            <file>file:/C:/Users/saiki/Desktop/Hoc_lap_trinh/2025/SU2025/PRJ301/PRJ301_Assignment/PRJ301_Assignment/PRJ301_Assignment/src/java/controller/rfl/ReviewRequestServlet.java</file>
+        </group>
+    </open-files>
+</project-private>
