@@ -1,12 +1,24 @@
-package dao;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package dal;
 
+import java.util.ArrayList;
 import java.sql.*;
 import java.util.*;
 import java.util.Date;
-import model.LeaveRequest;
-import model.User;
+import java.util.logging.Level;
+import model.IModel;
+import model.accesscontrol.LeaveRequest;
+import model.accesscontrol.User;
+import java.sql.Connection;
+/**
+ *
+ * @author p14s
+ */
 
-public class LeaveRequestDAO extends DBContext {
+public class RequestForLeaveDBContext extends DBContext {
 
     public void createRequest(LeaveRequest req) {
         String sql = "INSERT INTO Requests (user_id, from_date, to_date, reason, status_id, processed_by, created_date) " +
@@ -80,6 +92,41 @@ public class LeaveRequestDAO extends DBContext {
 
         return list;
     }
+    public List<LeaveRequest> getRequestsOfAllNonAdmins() throws Exception {
+    List<LeaveRequest> list = new ArrayList<>();
+
+    String sql = """
+        SELECT r.*, u.name AS username
+        FROM Requests r
+        JOIN Users u ON r.user_id = u.user_id
+        WHERE u.role_name != 'admin'
+    """;
+
+    try (Connection conn = getConnection();
+         PreparedStatement ps = conn.prepareStatement(sql);
+         ResultSet rs = ps.executeQuery()) {
+
+        while (rs.next()) {
+            LeaveRequest req = new LeaveRequest();
+            req.setRequestId(rs.getInt("id"));
+            req.setUserId(rs.getInt("user_id"));
+            req.setFromDate(rs.getDate("from_date"));
+            req.setToDate(rs.getDate("to_date"));
+            req.setReason(rs.getString("reason"));
+            req.setStatusId(rs.getInt("status_id"));
+            req.setProcessedBy(rs.getInt("processed_by"));
+            req.setCreatedDate(rs.getTimestamp("created_date"));
+            // Optional: set user name if needed
+            list.add(req);
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return list;
+}
+
 
     public List<LeaveRequest> getPendingRequestsForReviewer(User user) {
     List<LeaveRequest> list = new ArrayList<>();
@@ -139,6 +186,21 @@ public class LeaveRequestDAO extends DBContext {
         e.printStackTrace();
     }
 }
+    public void updateRequestStatus(int requestId, int status) throws Exception {
+    String sql = "UPDATE Requests SET status_id = ? WHERE id = ?";
+
+    try (Connection conn = getConnection();
+         PreparedStatement ps = conn.prepareStatement(sql)) {
+
+        ps.setInt(1, status); // 0 = Inprogress, 1 = Rejected, 2 = Approved
+        ps.setInt(2, requestId);
+
+        ps.executeUpdate();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
   
     public LeaveRequest getRequestById(int requestId) {
     String sql = "SELECT r.*, u.name FROM Requests r JOIN Users u ON r.user_id = u.user_id WHERE request_id = ?";
@@ -209,6 +271,43 @@ public class LeaveRequestDAO extends DBContext {
 
     return list;
 }
+    public List<LeaveRequest> getRequestsOfSubordinates(int managerId) throws Exception {
+    List<LeaveRequest> list = new ArrayList<>();
+
+    String sql = """
+        SELECT r.*, u.name AS username
+        FROM Requests r
+        JOIN Users u ON r.user_id = u.user_id
+        WHERE u.manager_id = ?
+    """;
+
+    try (Connection conn = getConnection();
+         PreparedStatement ps = conn.prepareStatement(sql)) {
+
+        ps.setInt(1, managerId);
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()) {
+            LeaveRequest req = new LeaveRequest();
+            req.setRequestId(rs.getInt("id"));
+            req.setUserId(rs.getInt("user_id"));
+            req.setFromDate(rs.getDate("from_date"));
+            req.setToDate(rs.getDate("to_date"));
+            req.setReason(rs.getString("reason"));
+            req.setStatusId(rs.getInt("status_id"));
+            req.setProcessedBy(rs.getInt("processed_by"));
+
+            req.setCreatedDate(rs.getTimestamp("created_date"));
+            list.add(req);
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return list;
+}
+
 
     
     public List<LeaveRequest> getApprovedRequestsInRangeByDepartment(int departmentId, Date from, Date to) {
@@ -279,6 +378,35 @@ public class LeaveRequestDAO extends DBContext {
     return 0;
 }
 
+//    @Override
+//    public ArrayList list() {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
+//
+//    @Override
+//    public IModel get(int id) {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
+//
+//    @Override
+//    public void insert(IModel model) {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
+//
+//    @Override
+//    public void update(IModel model) {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
+//
+//    @Override
+//    public void delete(IModel model) {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
+//
+//    private Connection getConnection() {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
+//
 
     
     

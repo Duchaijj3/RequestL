@@ -1,13 +1,18 @@
-package controller;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package controller.rfl;
 
-import dao.LeaveRequestDAO;
+
+import dal.RequestForLeaveDBContext;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
-import model.LeaveRequest;
-import model.User;
+import model.accesscontrol.LeaveRequest;
+import model.accesscontrol.User;
 
 @WebServlet("/request/review")
 public class ReviewRequestServlet extends HttpServlet {
@@ -29,7 +34,7 @@ public class ReviewRequestServlet extends HttpServlet {
             return;
         }
 
-        List<LeaveRequest> list = new LeaveRequestDAO().getPendingRequestsForReviewer(user);
+        List<LeaveRequest> list = new RequestForLeaveDBContext().getPendingRequestsForReviewer(user);
         req.setAttribute("list", list);
         req.getRequestDispatcher("/view/request_review.jsp").forward(req, resp);
     }
@@ -42,7 +47,7 @@ public class ReviewRequestServlet extends HttpServlet {
         int statusId = Integer.parseInt(req.getParameter("statusId"));
         User user = (User) req.getSession().getAttribute("user");
 
-        new LeaveRequestDAO().updateStatus(requestId, statusId, user.getUserId());
+        new RequestForLeaveDBContext().updateStatus(requestId, statusId, user.getUserId());
 
         resp.sendRedirect(req.getContextPath() + "/request/review");
     }

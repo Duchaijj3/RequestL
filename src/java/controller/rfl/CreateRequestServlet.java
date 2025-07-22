@@ -1,14 +1,21 @@
-package controller;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package controller.rfl;
 
-import dao.LeaveRequestDAO;
+
+
+
+import dal.RequestForLeaveDBContext;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import model.LeaveRequest;
-import model.User;
+import model.accesscontrol.LeaveRequest;
+import model.accesscontrol.User;
 
 @WebServlet("/request/creat")
 public class CreateRequestServlet extends HttpServlet {
@@ -50,7 +57,7 @@ public class CreateRequestServlet extends HttpServlet {
             lr.setReason(reason);
             lr.setStatusId(1); // Inprogress
 
-            new LeaveRequestDAO().createRequest(lr);
+            new RequestForLeaveDBContext().createRequest(lr);
             resp.sendRedirect(req.getContextPath() + "/request/list");
         } catch (IOException | ParseException e) {
             req.setAttribute("error", "Lỗi dữ liệu. Vui lòng thử lại.");

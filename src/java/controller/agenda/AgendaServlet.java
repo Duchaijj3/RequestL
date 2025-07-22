@@ -1,14 +1,24 @@
-package controller;
-
-import dao.LeaveRequestDAO;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package controller.agenda;
+import dal.RequestForLeaveDBContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import model.LeaveRequest;
-import model.User;
+import model.accesscontrol.LeaveRequest;
+import model.accesscontrol.User;
+/**
+ *
+ * @author saiki
+ */
+
+
+
 
 @WebServlet("/agenda")
 public class AgendaServlet extends HttpServlet {
@@ -37,7 +47,7 @@ public class AgendaServlet extends HttpServlet {
             Date from = sdf.parse(fromStr);
             Date to = sdf.parse(toStr);
 
-            LeaveRequestDAO dao = new LeaveRequestDAO();
+            RequestForLeaveDBContext dao = new RequestForLeaveDBContext();
             List<LeaveRequest> list;
 
             if ("admin".equalsIgnoreCase(user.getRole())) {

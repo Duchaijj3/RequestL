@@ -1,3 +1,9 @@
+<%-- 
+    Document   : details
+    Created on : Jul 7, 2025, 10:35:53 PM
+    Author     : saiki
+--%>
+
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>

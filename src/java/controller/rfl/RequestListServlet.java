@@ -1,13 +1,19 @@
-package controller;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
 
-import dao.LeaveRequestDAO;
+package controller.rfl;
+
+
+import dal.RequestForLeaveDBContext;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
-import model.LeaveRequest;
-import model.User;
+import model.accesscontrol.LeaveRequest;
+import model.accesscontrol.User;
 
 @WebServlet("/request/list")
 public class RequestListServlet extends HttpServlet {
@@ -24,7 +30,7 @@ public class RequestListServlet extends HttpServlet {
             return;
         }
 
-        LeaveRequestDAO dao = new LeaveRequestDAO();
+        RequestForLeaveDBContext dao = new RequestForLeaveDBContext();
         List<LeaveRequest> list = dao.getRequestsForUser(user);
 
         req.setAttribute("list", list);

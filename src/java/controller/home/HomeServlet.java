@@ -3,16 +3,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-package controller;
-
-import dao.LeaveRequestDAO;
+package controller.home;
+import dal.RequestForLeaveDBContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import model.User;
+import model.accesscontrol.User;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
+
+
+
+
 
 @WebServlet("/home")
 public class HomeServlet extends HttpServlet {
@@ -28,7 +35,7 @@ public class HomeServlet extends HttpServlet {
             return;
         }
 
-        LeaveRequestDAO dao = new LeaveRequestDAO();
+        RequestForLeaveDBContext dao = new RequestForLeaveDBContext();
         String role = user.getRole();
 
         int pending = dao.countRequestsByStatus(role, user.getUserId(), user.getDepartmentId(), 1);

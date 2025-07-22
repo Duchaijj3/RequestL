@@ -1,14 +1,24 @@
-package controller;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package controller.rfl;
 
-import dao.LeaveRequestDAO;
+/**
+ *
+ * @author saiki
+ */
+
+
+import dal.RequestForLeaveDBContext;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import model.LeaveRequest;
-import model.User;
+import model.accesscontrol.LeaveRequest;
+import model.accesscontrol.User;
 
 @WebServlet("/request/modif")
 public class ModifyRequestServlet extends HttpServlet {
@@ -35,7 +45,7 @@ public class ModifyRequestServlet extends HttpServlet {
             return;
         }
 
-        LeaveRequestDAO dao = new LeaveRequestDAO();
+        RequestForLeaveDBContext dao = new RequestForLeaveDBContext();
         LeaveRequest r = dao.getRequestById(id);
 
         User user = (User) req.getSession().getAttribute("user");
@@ -68,7 +78,7 @@ public class ModifyRequestServlet extends HttpServlet {
             r.setToDate(sdf.parse(to));
             r.setReason(reason);
 
-            new LeaveRequestDAO().updateRequest(r);
+            new RequestForLeaveDBContext().updateRequest(r);
             resp.sendRedirect(req.getContextPath() + "/request/list");
 
         } catch (NumberFormatException | ParseException e) {

@@ -1,9 +1,25 @@
-package dao;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package dal;
 
+import java.util.ArrayList;
+import model.accesscontrol.Role;
 import java.sql.*;
-import model.User;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.IModel;
+import model.accesscontrol.LeaveRequest;
+import model.accesscontrol.User;
+import dal.DBContext;
 
-public class UserDAO extends DBContext {
+/**
+ *
+ * @author p14s
+ */
+
+public class RoleDBContext extends DBContext {
 
     public User login(String username, String password) {
         String sql = """
@@ -36,5 +52,9 @@ public class UserDAO extends DBContext {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public ArrayList<Role> getByAccount(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

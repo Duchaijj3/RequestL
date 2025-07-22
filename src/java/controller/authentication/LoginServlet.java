@@ -1,11 +1,21 @@
-package controller;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package controller.authentication;
 
-import dao.UserDAO;
+/**
+ *
+ * @author saiki
+ */
+
+
+import dal.RoleDBContext;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
 import java.io.IOException;
-import model.User;
+import model.accesscontrol.User;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -18,7 +28,7 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username").trim();
         String password = request.getParameter("password").trim();
 
-        User user = new UserDAO().login(username, password);
+        User user = new RoleDBContext().login(username, password);
 
         if (user != null) {
             request.getSession().setAttribute("user", user);
